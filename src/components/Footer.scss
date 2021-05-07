@@ -1,0 +1,37 @@
+.footer {
+  width: 100%;
+  min-height: 290px;
+  background: #FFFFFF;
+
+  .footer_container {
+    box-sizing: border-box;
+    max-width: 1232px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0 0 0;
+  }
+  
+  p {
+    font-family: SB Sans Text;
+    max-width: 25%;
+    font-size: 16px;
+    color: #333F48;
+    line-height: 24px;
+    &:last-child {
+      max-width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer_container {
+    p {
+      max-width: 100%;
+      font-size: 16px;
+      line-height: 24px;
+      &:last-child {
+        max-width: 100%;
+      }
+    }
+  }
+}

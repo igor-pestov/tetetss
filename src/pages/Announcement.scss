@@ -1,0 +1,128 @@
+.announcement {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+  background: #eaedf2;
+}
+
+.announcement_container {
+  position: relative;
+  z-index: 3;
+  max-width: 1232px;
+  height: 100%;
+  margin: 0 auto 300px;
+}
+
+.announcement_timetable {
+  h2 {
+    width: 55%;
+    font-family: SB Sans Display;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 52px;
+    line-height: 48px;
+    background: -webkit-linear-gradient(left, #333f48 30%, #15c16a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.announcement_background_image {
+  position: absolute;
+  top: 0;
+  left: -12%;
+  z-index: 0;
+}
+
+.announcement_background_circle {
+  position: absolute;
+  top: 712px;
+  right: 10%;
+  z-index: 0;
+}
+
+.announcement_background_circle_2 {
+  position: absolute;
+  top: 2000px;
+  right: -300px;
+  z-index: -1;
+}
+
+.announcement_content-card {
+  margin: 10% 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .announcement_container {
+    max-width: 896px;
+  }
+  .announcement_background_image {
+    width: 100vw;
+    min-width: 450px;
+    left: -7%;
+  }
+  .announcement_background_circle {
+    top: 450px;
+    right: 0%;
+  }
+  .announcement_background_circle_2 {
+    top: 1768px;
+  }
+  .announcement_timetable {
+    h2 {
+      font-size: 48px;
+      line-height: 62px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .announcement_background_circle {
+    max-width: 543px;
+    top: 950px;
+    right: 8%;
+  }
+  .announcement_background_circle_2 {
+    width: 543px;
+    right: -250px;
+  }
+  .announcement_container {
+    width: 672px;
+  }
+  .announcement_timetable {
+    h2 {
+      width: 70%;
+      font-size: 36px;
+      line-height: 44px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .announcement_container {
+    max-width: 327px;
+    margin: 0 auto;
+  }
+  .announcement_background_circle {
+    width: 415px;
+    top: 748px;
+    right: -15%;
+  }
+  .announcement_background_circle_2 {
+    width: 450px;
+    top: 1463px;
+    right: -250px;
+  }
+  .announcement_timetable {
+    width: 100%;
+    margin: 25px 0;
+    h2 {
+      width: 100%;
+      font-size: 36px;
+      line-height: 44px;
+    }
+  }
+}
