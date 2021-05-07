@@ -14,11 +14,7 @@ const ContentTop = (e) => {
 
   useEffect(() => {
     i18n.changeLanguage(checkedLang);
-  }, []);
-
-  useEffect(() => {
-    i18n.changeLanguage(checkedLang);
-  }, [checkedLang]);
+  }, [checkedLang, i18n]);
 
   return (
     <div className='content-top'>

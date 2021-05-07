@@ -1,20 +1,5 @@
-import { useCountUp } from 'react-countup';
-import { useState } from 'react';
 export default function Svg1() {
-  const [disabled, setDisabled] = useState();
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const { countUp, start, pauseResume, reset, update } = useCountUp({
-    start: 2018,
-    end: 2012,
-    delay: 1000,
-    duration: 2,
-    onReset: () => console.log('Resetted!'),
-    onUpdate: () => console.log('Updated!'),
-    // onStart: () => setDisabled(true),
-    onEnd: ({ pauseResume }) => console.log(pauseResume),
-  });
 
-  // console.log(data);
   return (
     <svg
       className='test'
@@ -234,7 +219,6 @@ export default function Svg1() {
         <div
           className='year'
           xmlns='http://www.w3.org/1999/xhtml'
-          onClick={!disabled ? start : null}
         >
           2019
         </div>
