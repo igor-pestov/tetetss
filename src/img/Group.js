@@ -1,5 +1,4 @@
 export default function Svg1() {
-
   return (
     <svg
       className='test'
@@ -214,12 +213,11 @@ export default function Svg1() {
         width='200'
         height='180'
         style={{ textAlign: 'centr' }}
+        xmlns='http://www.w3.org/1999/xhtml'
+
         // className='graph__skills'
       >
-        <div
-          className='year'
-          xmlns='http://www.w3.org/1999/xhtml'
-        >
+        <div className='year' xmlns='http://www.w3.org/1999/xhtml'>
           2019
         </div>
       </foreignObject>

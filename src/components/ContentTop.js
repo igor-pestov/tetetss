@@ -17,10 +17,14 @@ const ContentTop = (e) => {
   }, [checkedLang, i18n]);
   useEffect(() => {
     setWidth(window.innerWidth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.innerWidth]);
   const scroll = () => {
     if (width < 800) {
       window.scrollTo({ top: 1100, left: 0, behavior: 'smooth' });
+    }
+    if (width < 1100) {
+      window.scrollTo({ top: 1200, left: 0, behavior: 'smooth' });
     } else window.scrollTo({ top: 1500, left: 0, behavior: 'smooth' });
   };
   return (
@@ -43,9 +47,7 @@ const ContentTop = (e) => {
             <h2>{t('Титульный партнер ПМЭФ’21')}</h2>
           </div>
           <p>{t('2 июня - 5 июня 2021 год')}</p>
-          <button onClick={() => scroll()}>
-            {t('Смотреть программу')}
-          </button>
+          <button onClick={() => scroll()}>{t('Смотреть программу')}</button>
         </div>
         <div className='content-top_body_animated'>
           <img

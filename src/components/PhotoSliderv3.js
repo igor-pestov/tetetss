@@ -15,35 +15,14 @@ const photos = [
 ];
 
 const PhotoButton = ({ e, i, setOpen, setIndex }) => {
-  const [display, setDisplay] = useState(false);
-
-  const handleImgClick = (event, i) => {
-    setTimeout(() => setDisplay(false), 3000);
-    setDisplay(true);
-  };
-
   const handlePlusClick = (index) => {
     setOpen(true);
     setIndex(index);
   };
 
   return (
-    <div
-      key={`photo${i}`}
-      onClick={(event) => handleImgClick(event, i)}
-      className='photo-slider_slide'
-    >
-      <img src={e} alt='' />
-      <div
-        className='photo-button active'
-        style={{
-          display: !display ? 'none' : 'flex',
-          visibility: e.length === 0 ? 'hidden' : 'visible',
-        }}
-        onClick={() => handlePlusClick(i)}
-      >
-        <img src={plus} alt='' />
-      </div>
+    <div key={`photo${i}`} className='photo-slider_slide'>
+      <img src={e} alt='' onClick={() => handlePlusClick(i)} />
     </div>
   );
 };

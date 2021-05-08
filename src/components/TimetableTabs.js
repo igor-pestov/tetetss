@@ -95,8 +95,18 @@ const TimetableTabs = () => {
 
   const handleClick = (day) => {
     setActiveTab(day);
-    const daySelected = Number.parseInt(day);
 
+    const daySelected = Number.parseInt(day);
+    let elem = document.getElementsByClassName('timetable-tabs_buttons');
+
+    if (daySelected === 5) {
+      console.log(elem[0]);
+      elem[0].scrollTo({ left: 100, behavior: 'smooth' });
+      // elem[0].scrollLeft = elem[0].scrollWidth;
+    }
+    if (daySelected === 2) {
+      elem[0].scrollTo({ left: -100, behavior: 'smooth' });
+    }
     switch (daySelected) {
       case 2:
         setEvents(events);
@@ -131,7 +141,7 @@ const TimetableTabs = () => {
         {eventsState.events.map((e, i) => (
           <div key={`timerow${i}`} className='timetable-tabs_table_row'>
             <span>{e.time}</span>
-            <p className="text">{e.label}</p>
+            <p className='text'>{e.label}</p>
           </div>
         ))}
       </div>

@@ -16,7 +16,8 @@
   margin: 0 auto 300px;
 }
 a {
-  background: -webkit-linear-gradient(left, #333f48 0%, #15c16a 100%);
+  font-weight: normal;
+  background: -webkit-linear-gradient(left, #333f48 20%, #15c16a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   &:hover {

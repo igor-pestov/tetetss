@@ -32,7 +32,7 @@ const Announcement = () => {
           <p>
             <b>{t('Сбер')}</b> {t('Content-card_text1')}
             <a target="_blank" href='https://www.sber.ru/conf' rel="noreferrer">{t('ecosystem')}</a> 
-            {t('Content-card_text2')}.
+            {t('Content-card_text2')}
           </p>
         </ContentCard>
         <div className='announcement_timetable'>
