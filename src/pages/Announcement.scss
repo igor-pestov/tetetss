@@ -15,7 +15,21 @@
   height: 100%;
   margin: 0 auto 300px;
 }
-
+a {
+  background: -webkit-linear-gradient(left, #333f48 0%, #15c16a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  &:hover {
+    background: #16c16b;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:active {
+    background: #08ae5b;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 .announcement_timetable {
   h2 {
     width: 55%;

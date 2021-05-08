@@ -81,11 +81,11 @@ const PhotoSlider = () => {
   const [index, setIndex] = useState(0);
 
   const photos = [
-    '/img/Photos/2019/20190606__EGO5327.png',
-    '/img/Photos/2019/20190606_BEL_1957.png',
-    '/img/Photos/2019/20190606_LIVE6228.png',
-    '/img/Photos/2019/20190607__EGR8453.png',
-    '/img/Photos/2019/20190607__EGR8562.png',
+    '/img/Photos/2019/1.jpg',
+    '/img/Photos/2019/2.jpg',
+    '/img/Photos/2019/3.jpg',
+    '/img/Photos/2019/4.jpg',
+    '/img/Photos/2019/5.jpg',
   ];
 
   useEffect(() => {

@@ -18,7 +18,7 @@ const TimeTableBlock = ({events, day, image}) => {
           return (
             <div key={`timeblock${i}`} className='timetable-block_event'>
               <p className='time'>{e.time}</p>
-              <p>{e.label}</p>
+              <p className='text'>{e.label}</p>
             </div>
           )
         })
@@ -60,7 +60,7 @@ const Timetable = () => {
     },
     {
       time: '15:00 – 16:15',
-      label: t('Панельная сессия с участием Президента, Председятеля правления Г.О. Грефа'),
+      label: t('Панельная сессия с участием Президента, Председателя Правления Г.О. Грефа'),
     },
     {
       time: '20:00 – 23:00',
@@ -69,16 +69,12 @@ const Timetable = () => {
   ];
   const events3 = [
     {
-      time: '08:30 – 20:00',
+      time: '08:30 – 10:00',
       label: t('Деловой завтрак Сбера'),
     },
     {
-      time: '08:00',
+      time: '12:00 – 13:15',
       label: t('Сессия А.А. Ведяхина “Art.Creativity.AI” '),
-    },
-    {
-      time: '19:00 – 23:00',
-      label: t('Пленарная сессия с участием Президента РФ'),
     },
   ];
 

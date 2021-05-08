@@ -15,7 +15,11 @@
   position: relative;
   min-height: 900px;
   max-width: 284px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 24.13%, rgba(255, 255, 255, 0.5) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.75) 24.13%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
   border-radius: 24px;
   z-index: 0;
 }
@@ -41,7 +45,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 26px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .timetable-block_event {
@@ -54,12 +58,18 @@
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    color: #20394A;
+    color: #20394a;
   }
   .time {
     color: #334047;
     opacity: 0.5;
     margin: 4px 0;
+  }
+  .text {
+    &:hover {
+      cursor:default;
+      color: #16c16b;
+    }
   }
 }
 

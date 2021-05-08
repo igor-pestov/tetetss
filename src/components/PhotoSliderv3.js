@@ -6,60 +6,58 @@ import xIcon from '../img/x.svg';
 import './PhotoSliderv3.scss';
 
 const photos = [
-  '/img/Photos/2019/20190606__EGO5327.png',
-  '/img/Photos/2019/20190606_BEL_1957.png',
-  '/img/Photos/2019/20190606_LIVE6228.png',
-  '/img/Photos/2019/20190607__EGR8453.png',
-  '/img/Photos/2019/20190607__EGR8562.png',
+  '/img/Photos/2019/1.jpg',
+  '/img/Photos/2019/2.jpg',
+  '/img/Photos/2019/3.jpg',
+  '/img/Photos/2019/4.jpg',
+  '/img/Photos/2019/5.jpg',
   '',
 ];
 
-const PhotoButton = ({e, i, setOpen, setIndex}) => {
+const PhotoButton = ({ e, i, setOpen, setIndex }) => {
   const [display, setDisplay] = useState(false);
 
   const handleImgClick = (event, i) => {
-    setTimeout(() => setDisplay(false), 5000);
+    setTimeout(() => setDisplay(false), 3000);
     setDisplay(true);
-  }
+  };
 
   const handlePlusClick = (index) => {
     setOpen(true);
     setIndex(index);
-  }
+  };
 
   return (
-    <div 
-      key={`photo${i}`} 
-      onClick={(event) => handleImgClick(event, i)} 
+    <div
+      key={`photo${i}`}
+      onClick={(event) => handleImgClick(event, i)}
       className='photo-slider_slide'
     >
-      <img  src={e} alt='' />
-      <div className='photo-button' 
-        style={{display: !display? 'none' : 'flex'}}
-        onClick={() => handlePlusClick(i)}  
+      <img src={e} alt='' />
+      <div
+        className='photo-button active'
+        style={{
+          display: !display ? 'none' : 'flex',
+          visibility: e.length === 0 ? 'hidden' : 'visible',
+        }}
+        onClick={() => handlePlusClick(i)}
       >
-          <img
-            src={plus} 
-            alt='' 
-          />
+        <img src={plus} alt='' />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const PhotosModal = ({ open, setOpen, photos, index, setIndex }) => {
   const handleClick = (e, dest) => {
     dest === 'back'
-    ? index !== 0 && setIndex(index - 1)
-    : index < photos.length - 2 && setIndex(index + 1)
-  }
+      ? index !== 0 && setIndex(index - 1)
+      : index < photos.length - 2 && setIndex(index + 1);
+  };
 
   return (
     <Modal open={open} onClose={() => setOpen(false)}>
-      <div
-        onMouseDown={(e) => e.preventDefault()} 
-        className='photos-modal'
-      >
+      <div onMouseDown={(e) => e.preventDefault()} className='photos-modal'>
         <div className='photos-modal_header'>
           <h2>2019</h2>
           <img src={xIcon} alt='' onClick={() => setOpen(false)} />
@@ -69,9 +67,7 @@ const PhotosModal = ({ open, setOpen, photos, index, setIndex }) => {
             <p class='arrow'></p>
           </button>
           <img src={photos[index]} alt='' />
-          <button
-            onClick={(e) => handleClick(e, '')}
-          >
+          <button onClick={(e) => handleClick(e, '')}>
             <p class='arrow'></p>
           </button>
         </div>
@@ -100,19 +96,19 @@ const PhotoSliderv3 = () => {
 
   useEffect(() => {
     const maxScroll = () => {
-      if(container) setMaxScroll(container.current.scrollWidth - container.current.clientWidth)
-    }
+      if (container)
+        setMaxScroll(
+          container.current.scrollWidth - container.current.clientWidth
+        );
+    };
     if (container) maxScroll();
     window.addEventListener('resize', maxScroll);
-    return (
-      window.removeEventListener('resize', maxScroll)
-    );
+    return window.removeEventListener('resize', maxScroll);
   }, []);
 
- 
   const handleScroll = () => {
     setScroll(ref.current.scrollLeft);
-  }
+  };
 
   // const handleWheel = (e) => {
   //   e.preventDefault();
@@ -121,38 +117,29 @@ const PhotoSliderv3 = () => {
 
   const handleSlider = (value) => {
     ref.current.scrollTo(value, 0);
-  }
+  };
 
   const handleMouse = (e) => {
-    if (e.buttons) ref.current.scrollTo((ref.current.scrollLeft + (e.movementX * -1) * 2 ), 0);
-  }
+    if (e.buttons)
+      ref.current.scrollTo(ref.current.scrollLeft + e.movementX * -1 * 2, 0);
+  };
 
   return (
     <div className='slider-wrapper'>
       <div
-        onMouseDown={e => e.preventDefault()}
-        onMouseMove={e => handleMouse(e)}
-        className='slider-containerv3' 
-        ref={ref} 
+        onMouseDown={(e) => e.preventDefault()}
+        onMouseMove={(e) => handleMouse(e)}
+        className='slider-containerv3'
+        ref={ref}
         onScroll={() => handleScroll()}
         // onWheel={e => handleWheel(e)}
       >
-        <div
-          ref={container}
-          className='photosliderv3'
-        >
-          {
-            photos.map((e, i) => {
-              return (
-                <PhotoButton
-                  e={e} 
-                  i={i}
-                  setOpen={setOpen}
-                  setIndex={setIndex}
-                />
-              );
-            })
-          }
+        <div ref={container} className='photosliderv3'>
+          {photos.map((e, i) => {
+            return (
+              <PhotoButton e={e} i={i} setOpen={setOpen} setIndex={setIndex} />
+            );
+          })}
         </div>
       </div>
       <MUISlider
@@ -170,6 +157,6 @@ const PhotoSliderv3 = () => {
       />
     </div>
   );
-}
+};
 
 export default PhotoSliderv3;

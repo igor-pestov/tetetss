@@ -22,11 +22,11 @@ const ContentTop = (e) => {
         <img src={logo} alt='' className='content-top_logo' />
         {checkedLang === 'rus' ? (
           <button id='eu' onClick={(e) => changedLanguage(e.target.id)}>
-            en
+            EN
           </button>
         ) : (
           <button id='rus' onClick={(e) => changedLanguage(e.target.id)}>
-            rus
+            RUS
           </button>
         )}
       </div>

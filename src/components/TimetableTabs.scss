@@ -66,6 +66,12 @@
     font-size: 14px;
     color: #20394a;
   }
+  .text {
+    &:hover {
+      cursor: default;
+      color: #16c16b;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {

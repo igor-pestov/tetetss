@@ -6,7 +6,9 @@ i18n.use(LanguageDetector).init({
     eu: {
       translations: {
         'Сбер': 'Sber',
-        'Content-card_text': 'is a trusted assistant and navigator in a changing world: we help people, businesses and our country to develop sustainably by building a fully integrated ecosystem. Group companies cover all customer needs in the digital world',
+        'Content-card_text1': 'is a trusted assistant and navigator in a changing world: we help people, businesses and our country to develop sustainably by building a fully integrated ',
+        'ecosystem': 'ecosystem',
+        'Content-card_text2': '. Group companies cover all customer needs in the digital world',
         'Титульный партнер ПМЭФ’21' : 'Title Partner of SPIEF 2021',
         '2 июня - 5 июня 2021 год': '2 - 5 June 2021',
         'Смотреть программу': 'View the programme',
@@ -26,7 +28,9 @@ i18n.use(LanguageDetector).init({
     rus: {
       translations: {
         'Сбер': 'Сбер',
-        'Content-card_text' : 'доверенный помощник и навигатор в меняющемся мире: помогает человеку, бизнесу и стране стабильно развиваться благодаря построению полностью интегрированной экосистемы. Компании Группы покрывают все потребности клиентов в цифровом мире.',
+        'Content-card_text1' : 'доверенный помощник и навигатор в меняющемся мире: помогает человеку, бизнесу и стране стабильно развиваться благодаря построению полностью интегрированной ',
+        'ecosystem': 'экосистемы',
+        'Content-card_text2': '. Компании Группы покрывают все потребности клиентов в цифровом мире.',
         'Титульный партнер ПМЭФ’21' : 'Титульный партнер ПМЭФ’21',
         '2 июня - 5 июня 2021 год': '2 июня - 5 июня 2021 год',
         'Смотреть программу': 'Смотреть программу',
