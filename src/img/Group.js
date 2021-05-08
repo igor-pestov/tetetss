@@ -212,15 +212,15 @@ export default function Svg1() {
         y='400'
         width='200'
         height='180'
-        style={{ textAlign: 'centr' }}
+        // style={{ textAlign: 'center' }}
 
         // className='graph__skills'
       >
-        <div className='year' 
+        {/* <div className='year' 
         // xmlns='http://www.w3.org/1999/xhtml'
         >
           2019
-        </div>
+        </div> */}
       </foreignObject>
       <circle opacity='0.3' cx='247.5' cy='162.5' r='5.5' fill='#24D32C' />
 

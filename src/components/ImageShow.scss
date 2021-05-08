@@ -17,17 +17,17 @@
     position: absolute;
     left: -15%;
     top: -1%;
-    .year {
-      font-family: SB Sans Display;
-      position: absolute;
-      width: 100px;
-      top: 24px;
-      left: 0px;
-      font-size: 44px;
-      // background: -webkit-linear-gradient(left, #333f48 0%, #15c16a 100%);
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
-    }
+  }
+  .year {
+    font-family: SB Sans Display;
+    position: absolute;
+    width: 100px;
+    top: 106%;
+    left: 35%;
+    font-size: 44px;
+    background: -webkit-linear-gradient(left, #333f48 0%, #15c16a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
@@ -72,12 +72,12 @@
       position: absolute;
       left: -31%;
       top: 42%;
-      .year {
-        position: absolute;
-        width: 100px;
-        top: 24px;
-        left: 0px;
-      }
+    }
+    .year {
+      position: absolute;
+      width: 100px;
+      top: 107%;
+      left: 35%;
     }
   }
 
@@ -106,6 +106,12 @@
       position: absolute;
       left: -52%;
       top: 46%;
+    }
+    .year {
+      position: absolute;
+      width: 100px;
+      top: 108%;
+      left: 35%;
     }
   }
   .imageshow {
@@ -142,13 +148,13 @@
       left: -39%;
       top: 18%;
       transform: rotate(90deg);
-      .year {
-        position: absolute;
-        width: 100px;
-        top: 24px;
-        left: -33px;
-        transform: rotate(-90deg);
-      }
+    }
+    .year {
+      position: absolute;
+      width: 100px;
+      top: 66%;
+      left: 35%;
+      transform: rotate(0deg);
     }
   }
   .imageshow-text {

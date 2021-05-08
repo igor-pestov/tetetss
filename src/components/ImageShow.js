@@ -6,7 +6,13 @@ const ImageShow = () => {
   return (
     <div className='imageshow'>
       <Group />
-      <div className="block-text-photo">
+      <div
+        className='year'
+        // xmlns='http://www.w3.org/1999/xhtml'
+      >
+        2019
+      </div>
+      <div className='block-text-photo'>
         <div className='imageshow-text'>
           <h2>История Сбера на ПМЭФ</h2>
           <p>
