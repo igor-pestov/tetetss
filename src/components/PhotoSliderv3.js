@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Slider as MUISlider } from '@material-ui/core';
 import { Modal } from '@material-ui/core';
-import plus from '../img/Plus.svg';
 import xIcon from '../img/x.svg';
 import './PhotoSliderv3.scss';
 
