@@ -40,14 +40,16 @@
   .content-top_body_text {
     max-width: 40%;
     font-family: SB Sans Display;
-
+  .content-top_body_gardient-text {
+    width: 75%;
+  }
     h2 {
       font-family: SB Sans Display;
       font-style: normal;
       font-weight: 300;
       font-size: 70px;
       line-height: 90px;
-      background: -webkit-linear-gradient(left, #333f48 0%, #15c16a 100%);
+      background: -webkit-linear-gradient(left, #333f48 20%, #15C16A 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0 0 32px 0;

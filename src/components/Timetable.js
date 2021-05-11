@@ -6,26 +6,25 @@ import header3 from '../img/timeTableHeaders/3.svg';
 import header4 from '../img/timeTableHeaders/4.svg';
 import './Timetable.scss';
 
-const TimeTableBlock = ({events, day, image}) => {
+const TimeTableBlock = ({ events, day, image }) => {
   return (
     <div className='timetable-block'>
       <img className='timetable-block_header_image' src={image} alt='' />
       <div className='timetable-block_header'>
         <span className='timetable-block_header_day'>{day}</span>
       </div>
-      {
-        events.map((e, i) => {
-          return (
-            <div key={`timeblock${i}`} className='timetable-block_event'>
-              <p className='time'>{e.time}</p>
-              <p className='text'>{e.label}</p>
-            </div>
-          )
-        })
-      }
+      {events.map((e, i) => {
+        return (
+          <div key={`timeblock${i}`} className='timetable-block_event'>
+            <p className='time'>{e.time}</p>
+            <p className='text'>{e.label}</p>
+            <hr className='border' />
+          </div>
+        );
+      })}
     </div>
   );
-}
+};
 
 const Timetable = () => {
   const { t } = useTranslation();
@@ -52,7 +51,9 @@ const Timetable = () => {
     },
     {
       time: '11:00 – 12:15',
-      label: t('Сессия С.К.Кузнецова Безопасное развитие экосистем – что лежит в основе?'),
+      label: t(
+        'Сессия С.К.Кузнецова Безопасное развитие экосистем – что лежит в основе?'
+      ),
     },
     {
       time: '13:00 – 14:00',
@@ -60,7 +61,9 @@ const Timetable = () => {
     },
     {
       time: '15:00 – 16:15',
-      label: t('Панельная сессия с участием Президента, Председателя Правления Г.О. Грефа'),
+      label: t(
+        'Панельная сессия с участием Президента, Председателя Правления Г.О. Грефа'
+      ),
     },
     {
       time: '20:00 – 23:00',
@@ -86,6 +89,6 @@ const Timetable = () => {
       <TimeTableBlock day='5 июня' events={events2} image={header4} />
     </div>
   );
-}
+};
 
 export default Timetable;

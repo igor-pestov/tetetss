@@ -10,6 +10,7 @@ import circle from '../img/circle.svg';
 import backGround from '../img/bg.svg';
 import './Announcement.scss';
 
+
 const Announcement = () => {
   const [screenSize, setSize] = useState(window.innerWidth);
   const { t } = useTranslation();

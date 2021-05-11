@@ -49,9 +49,15 @@
 }
 
 .timetable-block_event {
+  position: relative;
   width: 80%;
   min-height: 160px;
   margin-bottom: 24px;
+  hr {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+  }
   p {
     margin: 4px 0 10px 0;
     font-family: SB Sans Display;
@@ -67,7 +73,7 @@
   }
   .text {
     &:hover {
-      cursor:default;
+      cursor: default;
       color: #16c16b;
     }
   }

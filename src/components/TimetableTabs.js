@@ -100,9 +100,7 @@ const TimetableTabs = () => {
     let elem = document.getElementsByClassName('timetable-tabs_buttons');
 
     if (daySelected === 5) {
-      console.log(elem[0]);
       elem[0].scrollTo({ left: 100, behavior: 'smooth' });
-      // elem[0].scrollLeft = elem[0].scrollWidth;
     }
     if (daySelected === 2) {
       elem[0].scrollTo({ left: -100, behavior: 'smooth' });

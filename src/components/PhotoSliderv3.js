@@ -4,19 +4,12 @@ import { Modal } from '@material-ui/core';
 import xIcon from '../img/x.svg';
 import './PhotoSliderv3.scss';
 
-const photos = [
-  '/img/Photos/2019/1.jpg',
-  '/img/Photos/2019/2.jpg',
-  '/img/Photos/2019/3.jpg',
-  '/img/Photos/2019/4.jpg',
-  '/img/Photos/2019/5.jpg',
-  '',
-];
-
-const PhotoButton = ({ e, i, setOpen, setIndex }) => {
+const PhotoButton = ({ e, i, setOpen, setIndex, qwert, scroll }) => {
   const handlePlusClick = (index) => {
-    setOpen(true);
-    setIndex(index);
+    if (qwert == scroll) {
+      setOpen(true);
+      setIndex(index);
+    }
   };
 
   return (
@@ -26,7 +19,7 @@ const PhotoButton = ({ e, i, setOpen, setIndex }) => {
   );
 };
 
-const PhotosModal = ({ open, setOpen, photos, index, setIndex }) => {
+const PhotosModal = ({ open, setOpen, photos, index, setIndex, year }) => {
   const handleClick = (e, dest) => {
     dest === 'back'
       ? index !== 0 && setIndex(index - 1)
@@ -37,7 +30,7 @@ const PhotosModal = ({ open, setOpen, photos, index, setIndex }) => {
     <Modal open={open} onClose={() => setOpen(false)}>
       <div onMouseDown={(e) => e.preventDefault()} className='photos-modal'>
         <div className='photos-modal_header'>
-          <h2>2019</h2>
+          <h2>{year}</h2>
           <img src={xIcon} alt='' onClick={() => setOpen(false)} />
         </div>
         <div className='photos-modal_current'>
@@ -64,13 +57,46 @@ const PhotosModal = ({ open, setOpen, photos, index, setIndex }) => {
   );
 };
 
-const PhotoSliderv3 = () => {
+const PhotoSliderv3 = ({ year }) => {
   const ref = useRef();
   const container = useRef();
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [scroll, setScroll] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
+  const [qwert, setQwert] = useState(0);
+  const [photos, setPhotos] = useState([
+    `/img/Photos/${year}/1.jpg`,
+    `/img/Photos/${year}/2.jpg`,
+    `/img/Photos/${year}/3.jpg`,
+    `/img/Photos/${year}/4.jpg`,
+    `/img/Photos/${year}/5.jpg`,
+    '',
+  ]);
+  useEffect(() => {
+    setPhotos([
+      `/img/Photos/${year}/1.jpg`,
+      `/img/Photos/${year}/2.jpg`,
+      `/img/Photos/${year}/3.jpg`,
+      `/img/Photos/${year}/4.jpg`,
+      `/img/Photos/${year}/5.jpg`,
+      '',
+    ]);
+    setScroll(0);
+    setIndex(0);
+    setMaxScroll(0);
+    ref.current.scrollTo(0, 0);
+
+    const maxScroll = () => {
+      if (container)
+        setMaxScroll(
+          container.current.scrollWidth - container.current.clientWidth
+        );
+    };
+    if (container) maxScroll();
+    window.addEventListener('resize', maxScroll);
+    return window.removeEventListener('resize', maxScroll);
+  }, [year]);
 
   useEffect(() => {
     const maxScroll = () => {
@@ -83,15 +109,9 @@ const PhotoSliderv3 = () => {
     window.addEventListener('resize', maxScroll);
     return window.removeEventListener('resize', maxScroll);
   }, []);
-
   const handleScroll = () => {
     setScroll(ref.current.scrollLeft);
   };
-
-  // const handleWheel = (e) => {
-  //   e.preventDefault();
-  //   ref.current.scrollTo((ref.current.scrollLeft + e.deltaY*2 ), 0);
-  // }
 
   const handleSlider = (value) => {
     ref.current.scrollTo(value, 0);
@@ -101,39 +121,52 @@ const PhotoSliderv3 = () => {
     if (e.buttons)
       ref.current.scrollTo(ref.current.scrollLeft + e.movementX * -1 * 2, 0);
   };
-
+  const test = (e) => {
+    e.preventDefault();
+    setQwert(scroll);
+  };
   return (
-    <div className='slider-wrapper'>
-      <div
-        onMouseDown={(e) => e.preventDefault()}
-        onMouseMove={(e) => handleMouse(e)}
-        className='slider-containerv3'
-        ref={ref}
-        onScroll={() => handleScroll()}
-        // onWheel={e => handleWheel(e)}
-      >
-        <div ref={container} className='photosliderv3'>
-          {photos.map((e, i) => {
-            return (
-              <PhotoButton e={e} i={i} setOpen={setOpen} setIndex={setIndex} />
-            );
-          })}
+    photos.length > 0 && (
+      <div className='slider-wrapper'>
+        <div
+          onMouseDown={(e) => test(e)}
+          onMouseMove={(e) => handleMouse(e)}
+          className='slider-containerv3'
+          ref={ref}
+          onScroll={() => handleScroll()}
+          // onWheel={e => handleWheel(e)}
+        >
+          <div ref={container} className='photosliderv3'>
+            {photos.map((e, i) => {
+              return (
+                <PhotoButton
+                  qwert={qwert}
+                  scroll={scroll}
+                  e={e}
+                  i={i}
+                  setOpen={setOpen}
+                  setIndex={setIndex}
+                />
+              );
+            })}
+          </div>
         </div>
+        <MUISlider
+          className='photo-slider_slider'
+          max={maxScroll}
+          value={scroll}
+          onChange={(e, value) => handleSlider(value)}
+        />
+        <PhotosModal
+          year={year}
+          open={open}
+          setOpen={setOpen}
+          photos={photos}
+          index={index}
+          setIndex={setIndex}
+        />
       </div>
-      <MUISlider
-        className='photo-slider_slider'
-        max={maxScroll}
-        value={scroll}
-        onChange={(e, value) => handleSlider(value)}
-      />
-      <PhotosModal
-        open={open}
-        setOpen={setOpen}
-        photos={photos}
-        index={index}
-        setIndex={setIndex}
-      />
-    </div>
+    )
   );
 };
 

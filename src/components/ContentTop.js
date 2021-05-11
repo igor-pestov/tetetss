@@ -12,8 +12,16 @@ const ContentTop = (e) => {
   };
   const { t, i18n } = useTranslation();
   const [width, setWidth] = useState();
+
   useEffect(() => {
     i18n.changeLanguage(checkedLang);
+    document.title = t('title');
+    document.querySelector(
+      'meta[name="description"]'
+    ).attributes.content.value = t('description');
+    document.querySelector(
+      'meta[property="og:title"]'
+    ).attributes.content.value = t('title');
   }, [checkedLang, i18n]);
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -21,7 +29,7 @@ const ContentTop = (e) => {
   }, [window.innerWidth]);
   const scroll = () => {
     if (width < 800) {
-      window.scrollTo({ top: 1100, left: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 1100, left: 0, scrollehavior: 'smooth' });
     }
     if (width < 1100) {
       window.scrollTo({ top: 1200, left: 0, behavior: 'smooth' });
